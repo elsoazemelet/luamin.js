@@ -279,7 +279,7 @@ function CreateLuaTokenStream(text) {
         let i_;
         for (i_ = 0; i_ < tokenBuffer.length; i_++) {
             let token = tokenBuffer[i_]
-            print(`${token.Type}<${token.Source}>`)
+            //print(`${token.Type}<${token.Source}>`)
         }
         throw `file<${line}:${char}>: ${str}`
     }
@@ -633,7 +633,7 @@ function CreateLuaParser(text) {
         } else {
             let i
             for (i=-3; i<=3; i++) {
-                print(`Tokens[${i}] = \`${peek(i).Source}\``)
+                //print(`Tokens[${i}] = \`${peek(i).Source}\``)
             }
             if (source) {
                 let a = `${getTokenStartPosition(tk)}: \`${source}\` expected.`
@@ -713,7 +713,7 @@ function CreateLuaParser(text) {
 
             return node
         } else {
-            print(debugMark())
+            //print(debugMark())
             let a = (`${getTokenStartPosition(tk)}: Unexpected symbol. ${tk.Type} ${tk.Source}`)
             throw a
         }
@@ -823,7 +823,7 @@ function CreateLuaParser(text) {
             get()
             return [body, after]
         } else {
-            print(after.Type, after.Source)
+            //print(after.Type, after.Source)
             throw `${getTokenStartPosition(after)}: ${terminator} expected.`
         }
     }
@@ -1481,7 +1481,7 @@ function CreateLuaParser(text) {
         let i = 0
         while (!isLast && !isBlockFollow()) {
             if (thing && thing == peek()) {
-                print(`INFINITE LOOP POSSIBLE ON STATEMENT ${thing.Source} :`,thing)
+                //print(`INFINITE LOOP POSSIBLE ON STATEMENT ${thing.Source} :`,thing)
             }
             thing = peek()
             let [isLast, stat] = statement(locals, upvals)
@@ -2626,7 +2626,7 @@ function FormatAst(ast) {
         } else if(expr.Type == 'CompoundStat') {
             formatStat(expr)
         } else {
-            print(expr)
+            //print(expr)
             throw(`unreachable, type: ${expr.Type}:`+ expr)
         }
     }
